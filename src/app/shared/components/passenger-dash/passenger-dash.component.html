@@ -1,0 +1,14 @@
+<h4 class="text-capitalize">airline passengers</h4>
+<p>Total Checked in <strong>{{checkedInArr.length}}/{{passengerArr.length}}</strong></p>
+
+<app-passenger-list [getPassengerArr]="passengerArr" ></app-passenger-list>
+
+<hr>
+
+<!-- 
+<app-passenger-card  [getPassengerArr]="passengerArr"></app-passenger-card> -->
+
+<app-passenger-card 
+(emitPassengerObj)="onObjGet($event)"
+[getPassengerObj]="obj"
+ *ngFor="let obj of passengerArr"></app-passenger-card>

@@ -1,0 +1,29 @@
+<div  class="card mb-4">
+    <div class="card-body">
+        <div class="form-group">
+            <span
+        class="roundShape"
+        [ngClass]="{
+            'bg-success' : getPassengerObj.checkInStatus,
+            'bg-danger' : !getPassengerObj.checkInStatus
+        }
+        "
+        ></span>
+        <input disabled type="text" class="form-control cardInput" #passName  id="getPassengerObjengerName" [value]="getPassengerObj.passengerName">
+
+        <p class="text-capitalize" *ngIf="getPassengerObj.checkInDate ; else notYetChkIn">Check In Date : {{getPassengerObj.checkInDate | date}}</p>
+        <ng-template #notYetChkIn >
+            <p class="text-capitalize">check In Date : not yet checked in</p>
+        </ng-template>
+        <p>Children : {{getPassengerObj.children}}</p>
+        </div>
+    </div>
+    <div class="card-footer d-flex justify-content-between">
+        <button #editBtn (click)="onEdit()" class="btn btn-primary">Edit</button>
+
+        <button style="display: none;" #doneBtn (click)="onDone()" class="btn btn-warning">Done</button>
+
+        <button (click)="onDelete()" class="btn btn-danger">Delete</button>
+        
+    </div>
+</div>
